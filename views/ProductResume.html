@@ -1,0 +1,19 @@
+<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pnaelProduct">
+    <div class="productContainer">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <img ng-src="{{product.photos | PhotoFilter}}" />
+                    </td>
+                    <td valign="top" style="padding: 5px 10px">
+                        <strong>{{product.name}}</strong> <br>
+                        <small>{{product.category.name}}</small>
+                        <div class="priceDiv">{{product.price | currency}}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-show="product.state == 'sold'" class="soldDiv">{{product.state}}</div>
+    </div>
+</div>
