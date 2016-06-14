@@ -14,9 +14,15 @@
         <div class="collapse navbar-collapse" id="navbar">
             <form class="navbar-form navbar-right" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="ex: Star Wars">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{$ctrl.selectedCategory.label || $ctrl.selectedCategory.name}} <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li ng-repeat="category in $ctrl.categories" ng-click="$ctrl.selectedCategory = category"><a href="#">{{category.name}}</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+                    <input type="text" class="form-control" placeholder="ex: Star Wars" ng-model="$ctrl.text">
                     <span class="input-group-btn">
-                        <button class="btn btn-success" type="button">Search</button>
+                        <button ng-click="$ctrl.search()" class="btn btn-success" type="button">Search</button>
                     </span>
                 </div>
             </form>
