@@ -19,6 +19,12 @@ body {
     background-color: #fff;
 }
 
+.productContainer strong {
+    color: #555;
+    font-size: 15px;
+    font-weight: 900;
+}
+
 .pnaelProduct img {
     width: 100px;
 }
@@ -46,4 +52,9 @@ body {
     -webkit-transform: rotate(315deg);
     -moz-transform: rotate(315deg);
     -o-transform: rotate(315deg);
+}
+
+.close {
+    float: none;
+    margin-left: 5px;
 }
