@@ -41,10 +41,10 @@ body {
 
 .soldDiv {
     position: absolute;
-    top: 40px;
+    top: 50px;
     left: 140px;
     color: red;
-    font-size: 40px;
+    font-size: 28px;
     font-weight: 700;
     text-transform: uppercase;
     border-top: 3px solid red;
