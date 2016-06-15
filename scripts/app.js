@@ -1,6 +1,6 @@
 // Module creation with ngComponentRouter for Single page application design
 // and ngSanitize to be able to bind html code into views elements
-angular.module("whatapop", ["ngComponentRouter", "ngSanitize"]);
+angular.module("whatapop", ["ngComponentRouter", "ngSanitize", "dahr.ng-haversine"]);
 
 // Configuring $locationProvider
 angular.module("whatapop").config(function($locationProvider) {
