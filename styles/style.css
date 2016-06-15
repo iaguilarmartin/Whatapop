@@ -2,6 +2,10 @@ body {
     background-color: #f6f6f6;
 }
 
+div #navbar.navbar-collapse.collapse.in {
+    height: 180px;
+}
+
 .navbar-brand {
     font-size: 25px;
 }
