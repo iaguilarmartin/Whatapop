@@ -5,19 +5,32 @@ angular.module("whatapop").service("ProductsService", ["$http", "AppSettings", "
 
         // Return all the products that matches the category and name provided
         // if no category or no name is passed by parameter then all products are returned
-        this.getProducts = function (text, category) {
+        this.getProducts = function (text, category, users) {
+
+            var arrayUsersIds = [];
+
+            if (users) {
+                angular.forEach(users, function (user) {
+                    arrayUsersIds.push(user.id);
+                });
+            }
 
             // A deferred object is created to simulate that the filtering procces is done on the server side
             var deferred = $q.defer();
             $http.get(AppSettings.urlAPIServer + AppSettings.productsMethod).then(function (result) {
                 var filteredResult = $filter("filter")(result.data, function (product) {
 
-                    // Filtering products witch name contains the text provided
+                    // Filtering products that are near current user
+                    if (users && arrayUsersIds.indexOf(product.seller.id) == -1) {
+                        return false;
+                    }
+
+                     // Filtering products witch name contains the text provided
                      if (text && product.name.toUpperCase().indexOf(text.toUpperCase()) == -1) {
                         return false;
                      }
 
-                    // Filtering products witch category id is equals the category identifier provided
+                     // Filtering products witch category id is equals the category identifier provided
                      if (!category || product.category.id == category) {
                         return true;
                      } else {
