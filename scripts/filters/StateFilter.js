@@ -1,5 +1,7 @@
 angular.module("whatapop").filter("StateFilter", function () {
-   return function (state) {
+
+    // This filter is used to translate the state stored in English inside the model to Spanish
+    return function (state) {
        if (state) {
            if (state == "selling") {
                return "Disponible";
@@ -9,5 +11,5 @@ angular.module("whatapop").filter("StateFilter", function () {
        } else {
            return "";
        }
-   }
+    }
 });
