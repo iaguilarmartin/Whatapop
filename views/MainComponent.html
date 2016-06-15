@@ -20,7 +20,7 @@
                             <li ng-repeat="category in $ctrl.categories" ng-click="$ctrl.selectedCategory = category"><a href="#">{{category.name}}</a></li>
                         </ul>
                     </div><!-- /btn-group -->
-                    <input type="text" class="form-control" placeholder="ex: Star Wars" ng-model="$ctrl.text">
+                    <input type="text" class="form-control" placeholder="ex: Star Wars" ng-model="$ctrl.text" ng-model-options="{ updateOn: 'blur' }">
                     <span class="input-group-btn">
                         <button ng-click="$ctrl.search()" class="btn btn-success" type="button">Search</button>
                     </span>

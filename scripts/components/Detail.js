@@ -6,7 +6,6 @@ angular.module("whatapop").component("detail", {
       ctrl.product = null;
 
       ctrl.$routerOnActivate = function(next, previous) {
-         console.log(previous);
          var productId = next.params.id;
          ProductsService.getProductById(productId).then(function (result) {
 
