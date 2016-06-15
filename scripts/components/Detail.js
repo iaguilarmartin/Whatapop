@@ -2,10 +2,11 @@
 // Component created to display all the details of a product
 angular.module("whatapop").component("detail", {
    templateUrl: "views/Detail.html",
-   controller: ["ProductsService", function (ProductsService) {
+   controller: ["ProductsService", "FavoritesService", function (ProductsService, FavoritesService) {
       var ctrl = this;
 
       ctrl.product = null;
+      ctrl.isFavorite = false;
 
       // On oage initializaton the complete product details are gotten
       // from the server using the identifier provided
@@ -16,12 +17,27 @@ angular.module("whatapop").component("detail", {
 
             if (result.data && result.data.length > 0) {
                ctrl.product = result.data[0];
+               ctrl.isFavorite = FavoritesService.isFavorite(ctrl.product.id);
             }
 
          }, function (err) {
             console.log(err);
             alert(err.data);
          })
+      };
+
+      // Use FavoritesService to remember this product as favorite
+      ctrl.addFavorites = function (id) {
+         if (FavoritesService.addFavorite(id)) {
+            ctrl.isFavorite = true;
+         }
+      }
+
+      // Use FavoritesService to remove this product from favorites
+      ctrl.removeFavorites = function (id) {
+         if (FavoritesService.removeFavorite(id)) {
+            ctrl.isFavorite = false;
+         }
       }
    }]
 });

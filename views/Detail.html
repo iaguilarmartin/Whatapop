@@ -9,8 +9,32 @@
         </div>
         <div class="col-md-6">
             <div class="visible-xs visible-sm" style="height: 20px"></div>
-            <label>Publicado:</label> <span>{{$ctrl.product.published_date | date}}</span><br>
-            <label>Estado:</label> <span ng-class="['sellingState', {soldState: $ctrl.product.state == 'sold'}]">{{$ctrl.product.state | StateFilter}}</span><br>
+            <table style="width: 100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label>Publicado:</label> <span>{{$ctrl.product.published_date | date}}</span><br>
+                        </td>
+                        <td rowspan="2" align="right" valign="middle">
+                            <button ng-click="$ctrl.addFavorites($ctrl.product.id)" ng-show="!$ctrl.isFavorite" type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-star-empty yellowStar" aria-hidden="true"></span> Añadir a Favoritos
+                            </button>
+                            <div id="removeFavoriteDiv" ng-show="$ctrl.isFavorite">
+                                <span style="font-size: 25px" class="glyphicon glyphicon-star yellowStar" aria-hidden="true"></span>
+                                <span ng-click="$ctrl.removeFavorites($ctrl.product.id)">
+                                    <a href="#">Eliminar de favoritos</a>
+                                </span>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Estado:</label> <span ng-class="['sellingState', {soldState: $ctrl.product.state == 'sold'}]">{{$ctrl.product.state | StateFilter}}</span><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <label>Descripción:</label>
             <div ng-bind-html="$ctrl.product.description"></div>
             <table style="width: 100%">
