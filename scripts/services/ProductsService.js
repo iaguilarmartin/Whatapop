@@ -21,4 +21,18 @@ angular.module("whatapop").service("ProductsService", ["$http", "AppSettings", "
         });
         return deferred.promise;
     }
+
+    this.getProductById = function (id) {
+        var deferred = $q.defer();
+        $http.get(AppSettings.urlAPIServer + AppSettings.productsMethod).then(function (result) {
+            var filteredResult = result.data.filter(function (product) {
+                return product.id == id;
+            });
+
+            deferred.resolve({data:filteredResult});
+        }, function (err) {
+            deferred.reject(err);
+        });
+        return deferred.promise;
+    }
 }]);
