@@ -13,13 +13,22 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar">
             <form class="navbar-form navbar-right" role="search">
-                <div class="input-group">
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{$ctrl.selectedCategory.label || $ctrl.selectedCategory.name}} <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
+                <div class="btn-group" role="group">
+                    <div class="btn-group" role="group">
+                        <button id="dropDownCategories" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span class="caret"></span> {{$ctrl.selectedCategory.label || $ctrl.selectedCategory.name}}</button>
+                        <ul class="dropdown-menu" aria-labelledby="dropDownCategories">
                             <li ng-repeat="category in $ctrl.categories" ng-click="$ctrl.selectedCategory = category"><a href="#">{{category.name}}</a></li>
                         </ul>
-                    </div><!-- /btn-group -->
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button id="dropDownDistances" type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{$ctrl.selectedDistance.label}} <span class="caret"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropDownDistances">
+                            <li ng-repeat="distance in $ctrl.distances" ng-click="$ctrl.selectedDistance = distance"><a href="#">{{distance.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="input-group">
                     <input type="text" class="form-control" placeholder="ex: Star Wars" ng-model="$ctrl.text" ng-model-options="{ updateOn: 'blur' }">
                     <span class="input-group-btn">
                         <button ng-click="$ctrl.search()" class="btn btn-success" type="button">Search</button>
