@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <base href="/">
     <meta charset="UTF-8">
     <title>Whatapop | Sell everything you don't need</title>
-</head>
-<body>
 
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-i18n/angular-locale_es-es.js"></script>
+    <script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+    <script src="node_modules/@angular/router/angular1/angular_1_router.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="scripts/app.js"></script>
+
+    <script src="scripts/components/MainComponent.js"></script>
+    <script src="scripts/components/Products.js"></script>
+    <script src="scripts/components/Detail.js"></script>
+
+    <script src="scripts/services/ProductsService.js"></script>
+    <script src="scripts/services/CategoriesService.js"></script>
+
+    <script src="scripts/directives/ProductResume.js"></script>
+
+    <script src="scripts/values/AppSettings.js"></script>
+
+    <script src="scripts/filters/PhotoFilter.js"></script>
+    <script src="scripts/filters/StateFilter.js"></script>
+</head>
+<body ng-app="whatapop">
+    <main-component></main-component>
 </body>
 </html>
