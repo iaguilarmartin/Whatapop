@@ -1,11 +1,11 @@
 <h3>Listado de productos</h3>
-<h4 ng-show="$ctrl.filterCategoty != 0 || $ctrl.filterText != null">
+<h4 ng-show="$ctrl.filterCategoty || $ctrl.filterText">
     Filtros:
-    <span style="margin-right: 10px" ng-show="$ctrl.filterText != null" class="label label-success">
+    <span style="margin-right: 10px" ng-show="$ctrl.filterText" class="label label-success">
         '{{$ctrl.filterText}}'
         <button type="button" class="close" aria-label="Close" ng-click="$ctrl.deleteFilterText()"><span aria-hidden="true">&times;</span></button>
     </span>
-    <span ng-show="$ctrl.filterCategoty != 0" class="label label-info">
+    <span ng-show="$ctrl.filterCategoty" class="label label-info">
         {{$ctrl.categoryName}}
         <button type="button" class="close" aria-label="Close" ng-click="$ctrl.deleteFilterCategory()"><span aria-hidden="true">&times;</span></button>
     </span>
