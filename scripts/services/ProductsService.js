@@ -8,7 +8,7 @@ angular.module("whatapop").service("ProductsService", ["$http", "AppSettings", "
                     return false;
                 }
 
-                if (category == 0 || product.category.id == category) {
+                if (!category || product.category.id == category) {
                     return true;
                 } else {
                     return false;
