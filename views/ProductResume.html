@@ -15,7 +15,10 @@
                     </tr>
                 </tbody>
             </table>
+            <div ng-show="isFavorite" class="favoritesDiv">
+                <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </div>
+            <div ng-show="product.state == 'sold'" class="soldDiv">Vendido</div>
         </a>
-        <div ng-show="product.state == 'sold'" class="soldDiv">Vendido</div>
     </div>
 </div>
