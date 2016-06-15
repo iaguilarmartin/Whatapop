@@ -2,7 +2,7 @@ angular.module("whatapop").filter("PhotoFilter",["AppSettings", function (AppSet
 
     return function (images) {
         console.log(images);
-        if (images.length > 0) {
+        if (images && images.length > 0) {
             return AppSettings.urlAPIServer + images[0];
         } else {
             return "";
