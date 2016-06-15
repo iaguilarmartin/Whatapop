@@ -1,4 +1,4 @@
-angular.module("whatapop", ["ngComponentRouter"]);
+angular.module("whatapop", ["ngComponentRouter", "ngSanitize"]);
 
 // Configuring $locationProvider
 angular.module("whatapop").config(function($locationProvider) {
