@@ -21,6 +21,8 @@
   "dependencies": {
     "@angular/router": "^0.2.0",
     "angular": "^1.5.6",
+    "angular-i18n": "^1.5.6",
+    "angular-sanitize": "^1.5.6",
     "bootstrap": "^3.3.6",
     "jquery": "^1.12.4",
     "lite-server": "^2.2.0"

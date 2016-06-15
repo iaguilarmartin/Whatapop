@@ -1,1 +1,37 @@
-<h2>Detalle de producto</h2>
+<div style="margin: 0 15px">
+    <div class="row">
+        <h3>{{$ctrl.product.name || "Producto no encontrado"}}</h3>
+        <h5>{{$ctrl.product.category.name}}</h5>
+    </div>
+    <div ng-show="$ctrl.product" class="row productContainer" style="padding: 20px">
+        <div id="imageContainer" class="col-md-6">
+            <img ng-src="{{$ctrl.product.photos | PhotoFilter}}" />
+        </div>
+        <div class="col-md-6">
+            <div class="visible-xs visible-sm" style="height: 20px"></div>
+            <label>Publicado:</label> <span>{{$ctrl.product.published_date | date}}</span><br>
+            <label>Estado:</label> <span ng-class="['sellingState', {soldState: $ctrl.product.state == 'sold'}]">{{$ctrl.product.state | StateFilter}}</span><br>
+            <label>Descripción:</label>
+            <div ng-bind-html="$ctrl.product.description"></div>
+            <table style="width: 100%">
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="#">
+                                <img height="50px" class="img-circle" ng-src="{{$ctrl.product.seller.avatar | PhotoFilter}}" />
+                                <span class="sellerSpan">{{$ctrl.product.seller.nick}}</span>
+                            </a>
+                        </td>
+                        <td align="right">
+                            <div class="priceDiv2">{{$ctrl.product.price | currency}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

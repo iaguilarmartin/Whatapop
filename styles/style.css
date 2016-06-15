@@ -1,5 +1,5 @@
 body {
-    background-color: #ddd;
+    background-color: #f6f6f6;
 }
 
 .navbar-brand {
@@ -17,6 +17,24 @@ body {
 
 .productContainer {
     background-color: #fff;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1), 0 2px 5px 0 transparent;
+    -webkit-transition: box-shadow .25s ease;
+    -moz-transition: box-shadow .25s ease;
+    -o-transition: box-shadow .25s ease;
+    transition: box-shadow .25s ease;
+}
+
+.productContainer.animated {
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+}
+
+.productContainer.animated:hover {
+    background-color: #faf2cc;
 }
 
 .productContainer strong {
@@ -30,13 +48,20 @@ body {
 }
 
 .priceDiv {
-    padding-top: 5px;
-    font-size: 21px;
+     padding-top: 5px;
+     font-size: 21px;
+     font-weight: 600;
+     color: #449d44;
+     position: absolute;
+     right: 15px;
+     bottom: 10px;
+ }
+
+.priceDiv2 {
+    padding: 10px 0;
+    font-size: 30px;
     font-weight: 600;
     color: #449d44;
-    position: absolute;
-    right: 15px;
-    bottom: 10px;
 }
 
 .soldDiv {
@@ -57,4 +82,23 @@ body {
 .close {
     float: none;
     margin-left: 5px;
+}
+
+#imageContainer {
+    text-align: center;
+}
+
+.sellingState {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #00AA00;
+}
+
+.soldState {
+    color: red;
+}
+
+.sellerSpan {
+    font-size: 20px;
+    margin-left: 10px;
 }
