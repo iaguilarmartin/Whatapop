@@ -1,9 +1,14 @@
+
+// Component created to display all the details of a product
 angular.module("whatapop").component("detail", {
    templateUrl: "views/Detail.html",
    controller: ["ProductsService", function (ProductsService) {
       var ctrl = this;
 
       ctrl.product = null;
+
+      // On oage initializaton the complete product details are gotten
+      // from the server using the identifier provided
 
       ctrl.$routerOnActivate = function(next, previous) {
          var productId = next.params.id;
