@@ -106,3 +106,50 @@ div #navbar.navbar-collapse.collapse.in {
     font-size: 20px;
     margin-left: 10px;
 }
+
+#removeFavoriteDiv {
+    display: inline-block;
+}
+
+#removeFavoriteDiv span {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 2px;
+}
+
+.yellowStar {
+    color: #ffc520;
+}
+
+.favoritesDiv {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid #ffc520;
+    position: absolute;
+    top: -8px;
+    right: 2px;
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    -o-transform: rotate(315deg);
+}
+
+.favoritesDiv span {
+    position: absolute;
+    top: -8px;
+    left: -18px;
+    color: white;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.footer p {
+    margin: 15px 0;
+}
+
+.footer a {
+    color: #FFF;
+}
+
