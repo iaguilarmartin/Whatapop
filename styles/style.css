@@ -144,3 +144,12 @@ div #navbar.navbar-collapse.collapse.in {
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
 }
+
+.footer p {
+    margin: 15px 0;
+}
+
+.footer a {
+    color: #FFF;
+}
+

@@ -30,7 +30,7 @@ angular.module("whatapop").component("mainComponent", {
                 {name:"Cualquier distancia", value:0, label: "Distancia"},
                 {name:"1Km - Cerca", value:1000, label: "Cerca"},
                 {name:"5Km - Mi zona", value:5000, label: "Mi zona"},
-                {name:"15Km - Mi ciudad", value:320000, label: "Mi ciudad"}
+                {name:"15Km - Mi ciudad", value:15000, label: "Mi ciudad"}
             ];
             ctrl.selectedDistance = ctrl.distances[0];
 
