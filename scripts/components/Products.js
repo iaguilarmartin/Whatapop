@@ -6,16 +6,9 @@ angular.module("whatapop").component("products", {
         function(ProductsService, UsersService, $rootRouter, LocationService) {
             var ctrl = this;
 
-            ctrl.products = [];
-
-            function loadProducts(users) {
-                ProductsService.getProducts(ctrl.filterText, ctrl.filterCategoty, users).then(function (result) {
-                    ctrl.products = result.data;
-                }, function (err) {
-                    alert(err.data);
-                    console.log(err);
-                });
-            };
+            ctrl.$onInit = function () {
+                ctrl.products = [];
+            }
 
             // On oage initializaton products are requested to the server
             // using the filters provided on the URL
@@ -67,6 +60,15 @@ angular.module("whatapop").component("products", {
             // Remove the text filter applied and reload the page
             ctrl.deleteFilterDistance = function () {
                 $rootRouter.navigate(['Products', {search: encodeURIComponent(ctrl.filterText), catId: "" + ctrl.filterCategoty, catName: encodeURIComponent(ctrl.categoryName), distance: "0", distName: ""}]);
+            };
+
+            function loadProducts(users) {
+                ProductsService.getProducts(ctrl.filterText, ctrl.filterCategoty, users).then(function (result) {
+                    ctrl.products = result.data;
+                }, function (err) {
+                    alert(err.data);
+                    console.log(err);
+                });
             };
         }
     ]
