@@ -8,9 +8,9 @@
                             <img ng-src="{{product.photos | PhotoFilter}}" />
                         </td>
                         <td valign="top" style="padding: 5px 10px">
-                            <strong>{{product.name}}</strong> <br>
-                            <small>{{product.category.name}}</small>
-                            <div class="priceDiv">{{product.price | currency}}</div>
+                            <strong>{{::product.name}}</strong> <br>
+                            <small>{{::product.category.name}}</small>
+                            <div class="priceDiv">{{::product.price | currency}}</div>
                         </td>
                     </tr>
                 </tbody>
