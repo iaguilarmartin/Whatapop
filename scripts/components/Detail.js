@@ -5,8 +5,10 @@ angular.module("whatapop").component("detail", {
    controller: ["ProductsService", "FavoritesService", function (ProductsService, FavoritesService) {
       var ctrl = this;
 
-      ctrl.product = null;
-      ctrl.isFavorite = false;
+      ctrl.$onInit = function () {
+         ctrl.product = null;
+         ctrl.isFavorite = false;
+      }
 
       // On oage initializaton the complete product details are gotten
       // from the server using the identifier provided
@@ -15,8 +17,8 @@ angular.module("whatapop").component("detail", {
          var productId = next.params.id;
          ProductsService.getProductById(productId).then(function (result) {
 
-            if (result.data && result.data.length > 0) {
-               ctrl.product = result.data[0];
+            if (result.data) {
+               ctrl.product = result.data;
                ctrl.isFavorite = FavoritesService.isFavorite(ctrl.product.id);
             }
 

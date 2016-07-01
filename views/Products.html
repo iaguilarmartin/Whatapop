@@ -2,15 +2,15 @@
 <h4 ng-show="$ctrl.filterCategoty || $ctrl.filterText || $ctrl.filterDistance">
     Filtros:
     <span style="margin-right: 10px" ng-show="$ctrl.filterText" class="label label-success">
-        '{{$ctrl.filterText}}'
+        '{{::$ctrl.filterText}}'
         <button type="button" class="close" aria-label="Close" ng-click="$ctrl.deleteFilterText()"><span aria-hidden="true">&times;</span></button>
     </span>
     <span style="margin-right: 10px" ng-show="$ctrl.filterCategoty" class="label label-info">
-        {{$ctrl.categoryName}}
+        {{::$ctrl.categoryName}}
         <button type="button" class="close" aria-label="Close" ng-click="$ctrl.deleteFilterCategory()"><span aria-hidden="true">&times;</span></button>
     </span>
     <span ng-show="$ctrl.filterDistance" class="label label-warning">
-        {{$ctrl.distanceName}}
+        {{::$ctrl.distanceName}}
         <button type="button" class="close" aria-label="Close" ng-click="$ctrl.deleteFilterDistance()"><span aria-hidden="true">&times;</span></button>
     </span>
 </h4>

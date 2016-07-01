@@ -17,27 +17,27 @@ angular.module("whatapop").component("mainComponent", {
 
     controller: ["CategoriesService", "$rootRouter","LocationService",
         function (CategoriesService, $rootRouter, LocationService) {
-            ctrl = this;
-
-            ctrl.text = "";
+            var ctrl = this;
 
             var emptyCategory = {name:"Cualquier categoria", id:0, label: "Categoria"};
-            ctrl.selectedCategory = emptyCategory;
-            ctrl.categories = [];
 
-            // Initialized default distances
-            ctrl.distances = [
-                {name:"Cualquier distancia", value:0, label: "Distancia"},
-                {name:"1Km - Cerca", value:1000, label: "Cerca"},
-                {name:"5Km - Mi zona", value:5000, label: "Mi zona"},
-                {name:"15Km - Mi ciudad", value:15000, label: "Mi ciudad"}
-            ];
-            ctrl.selectedDistance = ctrl.distances[0];
-
-            // Get the categories stored in the server to display them into the dropdown filter
             ctrl.$onInit = function() {
+                ctrl.text = "";
+                ctrl.selectedCategory = emptyCategory;
+                ctrl.categories = [];
+
+                // Initialized default distances
+                ctrl.distances = [
+                    {name:"Cualquier distancia", value:0, label: "Distancia"},
+                    {name:"1Km - Cerca", value:1000, label: "Cerca"},
+                    {name:"5Km - Mi zona", value:5000, label: "Mi zona"},
+                    {name:"15Km - Mi ciudad", value:15000, label: "Mi ciudad"}
+                ];
+                ctrl.selectedDistance = ctrl.distances[0];
+
                 LocationService.requestLocation();
 
+                // Get the categories stored in the server to display them into the dropdown filter
                 CategoriesService.getCategories().then(function (result) {
                     ctrl.categories = result.data;
 

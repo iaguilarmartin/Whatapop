@@ -17,11 +17,7 @@ angular.module("whatapop").service("UsersService", ["$http", "AppSettings", "$q"
                     };
 
                     // Filtering users that are near current location
-                     if (distance == 0 || $haversine.distance(coords, userCoords) <= distance) {
-                        return true;
-                     } else {
-                         return false;
-                     }
+                    return (distance == 0 || $haversine.distance(coords, userCoords) <= distance)
                  });
                 deferred.resolve({data:filteredResult});
             }, function (err) {
