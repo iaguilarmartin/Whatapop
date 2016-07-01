@@ -31,11 +31,7 @@ angular.module("whatapop").service("ProductsService", ["$http", "AppSettings", "
                      }
 
                      // Filtering products witch category id is equals the category identifier provided
-                     if (!category || product.category.id == category) {
-                        return true;
-                     } else {
-                        return false;
-                     }
+                     return (!category || product.category.id == category)
                  });
                 deferred.resolve({data:filteredResult});
             }, function (err) {
@@ -51,12 +47,8 @@ angular.module("whatapop").service("ProductsService", ["$http", "AppSettings", "
 
             // A deferred object is created to simulate that the filtering procces is done on the server side
             var deferred = $q.defer();
-            $http.get(AppSettings.urlAPIServer + AppSettings.productsMethod).then(function (result) {
-
-                // Filtering products witch id is equals to the identifier provided by param
-                var filteredResult = $filter("filter")(result.data, {"id": id});
-
-                deferred.resolve({data:filteredResult});
+            $http.get(AppSettings.urlAPIServer + AppSettings.productsMethod + "/" + id).then(function (result) {
+                deferred.resolve({data:result.data});
             }, function (err) {
                 deferred.reject(err);
             });

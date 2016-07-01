@@ -15,8 +15,8 @@ angular.module("whatapop").component("detail", {
          var productId = next.params.id;
          ProductsService.getProductById(productId).then(function (result) {
 
-            if (result.data && result.data.length > 0) {
-               ctrl.product = result.data[0];
+            if (result.data) {
+               ctrl.product = result.data;
                ctrl.isFavorite = FavoritesService.isFavorite(ctrl.product.id);
             }
 
